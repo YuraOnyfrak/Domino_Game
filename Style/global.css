@@ -1,0 +1,32 @@
+body{
+	background: url("../Resource/banner.jpg")
+	no-repeat;
+	width: 100vw;	
+	height: 100vh;
+	margin: 0;
+}
+
+ td{
+   
+   /* border: solid 1px silver; */
+    text-align:center;
+}
+
+img{
+	width: 40px; 
+    height:40px;      
+    display: inline-block;
+    margin: 0px;
+    
+
+}
+
+.userStone{
+	display: block;
+}
+ 
+.side{
+	display: block;
+	margin: 5px;
+
+}
