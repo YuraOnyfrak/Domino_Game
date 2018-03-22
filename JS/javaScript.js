@@ -8,15 +8,6 @@ new_game.init();
 });
 
 
-function Resize(){
-	
-		var height = window.innerHeight;	
-		var width = window.innerWidth;	 
-		//alert(height + " " + width);
-		//var  element  = document.getElementsByClassName("screen")[0].style.height = height + "px";    
-}
-
-
 var  index_user_stone = null; 
 
 function User_schoose(obj){
@@ -44,8 +35,13 @@ function User_schoose(obj){
 	
 };
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
 
-function Play_process(){
+
+
+async function Play_process(){
 	var game = new Create_game();
 
 		for (var index = 1; index < 4; index++) {
@@ -61,8 +57,9 @@ function Play_process(){
 													
 				}
 				else{
-					game.Some_function(index, current_stone);	
+					await sleep(2000);
 
+					game.Some_function(index, current_stone);	
 					Add_stone_to_left_field();
 					Add_stone_to_right_field();									
 
