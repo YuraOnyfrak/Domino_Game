@@ -20,12 +20,12 @@ function User_schoose(obj){
 
 		if ((index_user_stone)!=null) {
 			
-			current_stone = user.user_domino[index_user_stone];
+			current_stone = user.player_domino[index_user_stone];
 			
 			if(current_stone != undefined){
 				game.Some_function(0,current_stone);
 				index_user_stone = null;
-				Load_page(user.user_domino);
+				Load_page(user.player_domino);
 				Add_stone_to_left_field();
 				Add_stone_to_right_field();
 
@@ -95,20 +95,25 @@ var right_end=0;
 var index_first_move;
 
 
-class  Player{
+class Player{
 
-	Display_player_stones(array){
-		console.log("");
-		for (var i = 0; i < array.length; i++) {
-			console.log(array[i].right_side + " " + array[i].left_side);
-		}
-	};
+	Player(){
+	 	player_move = false;
+	 	player_domino = new Array(7);	
+	 };
 
 	Get_array_stone(){
-		return array;
-	};
+		return this.player_domino;
+	 };
 
-	Get_stone(mass)	{
+	Get_array_stone (){
+	return this.player_domino;
+	 };
+};
+
+
+
+Player.prototype.Get_stone = function(mass)	{
 		var summa= 0;
 		var index = 0;
 
@@ -120,9 +125,16 @@ class  Player{
 		}
 
 		return mass[index];
-	};
+};
 
-	Search_need_stone(number_left,number_right,array ){
+Player.prototype.Display_player_stones = function(array){
+		console.log("");
+		for (var i = 0; i < array.length; i++) {
+			console.log(array[i].right_side + " " + array[i].left_side);
+		}
+};
+
+Player.prototype.Search_need_stone = function(number_left,number_right,array ){
 
 		var current_array = new Array();
 
@@ -134,87 +146,18 @@ class  Player{
 			}
 		}	
 		var current_stone = this.Get_stone(current_array);	
-
-		if(current_stone == undefined ){
-			//console.log("undefined");
-
-		}
-		else{
-			//console.log("Go " + current_stone.right_side + " " + current_stone.left_side);
-		}	
-		
         
         return current_stone;
-
-	};
-
 };
 
 
-class User extends Player{
+var user = new Player();
 
-	 User()
-	 {
-	 	user_move = false;
-	 	user_domino = new Array(7);	
-	 };
+var first_computer = new Player();
 
-	Get_array_stone(){
-		return this.user_domino;
-	};
+var second_computer = new Player();
 
-};
-
-class First_computer extends Player{
-
-	First_computer(){
-
-		computer_first_move = false;
-		computer_first_domino = new Array(7);
-
-	};
-
-	Get_array_stone(){
-		return this.computer_first_domino;
-	}
-	
-
-};
-
-class Second_computer extends Player{
-
-	Second_computer(){
-
-		computer_second_move = false;
-		computer_second_domino = new Array(7);
-	};
-     
-   Get_array_stone(){
-		return this.computer_second_domino;
-	}
-
-};
-class Third_computer extends Player{
-
-	Third_computer(){
-
-		computer_third_move = false;
-		computer_third_domino = new Array(7);
-	};
-
-	Get_array_stone(){
-		return this.computer_third_domino;
-	}
-
-};
-
-var user = new User();
-
-var first_computer = new First_computer();
-
-var second_computer = new Second_computer();
-
-var third_computer = new Third_computer();
+var third_computer = new Player();
 
 
 class Create_game{
@@ -240,10 +183,10 @@ class Create_game{
 	 Distribution_domino_to_users(){
 
 		
-			user.user_domino =stone.slice(0,7);
-			first_computer.computer_first_domino=stone.slice(7,14);
-			second_computer.computer_second_domino=stone.slice(14,21);
-			third_computer.computer_third_domino=stone.slice(21,28);
+			user.player_domino =stone.slice(0,7);
+			first_computer.player_domino=stone.slice(7,14);
+			second_computer.player_domino=stone.slice(14,21);
+			third_computer.player_domino=stone.slice(21,28);
 
 			
 
@@ -367,42 +310,42 @@ class Create_game{
 
 		var move_index;
 
-		if (this.Search_the_smallest_double(user.user_domino)) {
-			user.user_move = true;
+		if (this.Search_the_smallest_double(user.player_domino)) {
+			user.player_move = true;
 			move_index= 3;
 			left_part_field.push(first_stone);
 			right_part_field.push(first_stone);
-			this.Remove(user.user_domino, first_stone);
+			this.Remove(user.player_domino, first_stone);
 			
 		}
-		else if (this.Search_the_smallest_double(first_computer.computer_first_domino)) {
-			first_computer.computer_first_move =true;			
+		else if (this.Search_the_smallest_double(first_computer.player_domino)) {
+			first_computer.player_move =true;			
 			move_index= 2;
 			left_part_field.push(first_stone);
 			right_part_field.push(first_stone);
-			this.Remove(first_computer.computer_first_domino, first_stone);
+			this.Remove(first_computer.player_domino, first_stone);
 			
 		}
-		else if (this.Search_the_smallest_double(second_computer.computer_second_domino)) {
-			second_computer.computer_second_move =true;
+		else if (this.Search_the_smallest_double(second_computer.player_domino)) {
+			second_computer.player_move =true;
 			move_index= 3;			
 			left_part_field.push(first_stone);
 			right_part_field.push(first_stone);
-			this.Remove(second_computer.computer_second_domino, first_stone);
+			this.Remove(second_computer.player_domino, first_stone);
 		}
-		else if (this.Search_the_smallest_double(third_computer.computer_third_domino)) 
+		else if (this.Search_the_smallest_double(third_computer.player_domino)) 
 		{
-			third_computer.computer_third_move=true;
+			third_computer.player_move=true;
 			move_index= 0;			
 			left_part_field.push(first_stone);
 			right_part_field.push(first_stone);
-			this.Remove(third_computer.computer_third_domino, first_stone);
+			this.Remove(third_computer.player_domino, first_stone);
 		}
 
-		array_move.push(user.user_move);
-		array_move.push(first_computer.computer_first_move);
-		array_move.push(second_computer.computer_second_move);
-		array_move.push(third_computer.computer_third_move);
+		array_move.push(user.player_move);
+		array_move.push(first_computer.player_move);
+		array_move.push(second_computer.player_move);
+		array_move.push(third_computer.player_move);
 
 		return move_index;
 	};
@@ -448,6 +391,15 @@ function Load_page(array){
 	 
 };
 
+function ChangeDisplayStone(stone, part){
+
+	if(stone.left_side == stone.right_side){
+		part.style.display = "block";
+			//part.style.marginLeft = "50px";
+	}
+
+}
+
 
 
 function Create_stone(i, part_field){
@@ -458,8 +410,11 @@ function Create_stone(i, part_field){
 			var image_first_part = document.getElementById("l"+i.toString());
 			if (part_field[parseInt((i-1)/2)] != undefined) {
 				if (part_field[parseInt((i-1)/2)].left_side != null) {				
-				image_first_part.src = Get_image_source(part_field[parseInt((i-1)/2)].left_side);
-				
+					image_first_part.src = Get_image_source(part_field[parseInt((i-1)/2)].left_side);
+
+					ChangeDisplayStone(part_field[parseInt((i-1)/2)],image_first_part);
+					
+
 				}
 			}			 
 			
@@ -468,7 +423,9 @@ function Create_stone(i, part_field){
 			var image_second_part = document.getElementById("l" +(i).toString());
 			if (part_field[parseInt((i-1)/2)] != undefined) {
 				if (part_field[parseInt((i-1)/2)].right_side != null) {
-				image_second_part.src = Get_image_source(part_field[parseInt((i-1)/2)].right_side);
+					image_second_part.src = Get_image_source(part_field[parseInt((i-1)/2)].right_side);
+
+					ChangeDisplayStone(part_field[parseInt((i-1)/2)],image_second_part);
 				}
 			}		 
 			
@@ -498,9 +455,14 @@ function Add_stone_to_right_field(){
 		if (i%2 ==0) {
 
 			var image_first_part = document.getElementById("l"+(i).toString());
+			
 			if (right_part_field[t] != undefined) {
-				if (right_part_field[t].left_side != null) {				
-				image_first_part.src = Get_image_source(right_part_field[t].left_side);
+
+				if (right_part_field[t].left_side != null) {	
+
+						image_first_part.src = Get_image_source(right_part_field[t].left_side);
+
+						ChangeDisplayStone(right_part_field[t], image_first_part);
 				
 				}
 			}
@@ -509,9 +471,15 @@ function Add_stone_to_right_field(){
 		}
 	else{
 			var image_second_part = document.getElementById("l" +(i).toString());
+
 			if (right_part_field[t] != undefined) {
+
 				if (right_part_field[t].right_side != null) {
-				image_second_part.src = Get_image_source(right_part_field[t].right_side);
+
+					image_second_part.src = Get_image_source(right_part_field[t].right_side);
+
+					ChangeDisplayStone(right_part_field[t], image_second_part);
+
 				}
 			}
 
@@ -576,7 +544,7 @@ class Game{
 		new_game.Domino_distribution_result();
 		new_game.Distribution_domino_to_users();
 		index_first_move = (new_game.Search_who_move());
-		Load_page(user.user_domino);
+		Load_page(user.player_domino);
 		First_go();			
 
 	}

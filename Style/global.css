@@ -1,6 +1,14 @@
 body{
+       margin:0;
+       padding:0;
+}
+
+.first-screen{
 	background: url("../Resource/banner.jpg")
 	no-repeat;
+	
+}
+.second-screen, .first-screen{	
 	width: 100vw;	
 	height: 100vh;
 	margin: 0;
@@ -17,12 +25,18 @@ img{
     height:40px;      
     display: inline-block;
     margin: 0px;
-    
+     
 
 }
 
-.userStone{
+.userStone td>img{
 	display: block;
+	
+}
+
+.userStone>td{
+	padding:  10px;
+	
 }
  
 .side{

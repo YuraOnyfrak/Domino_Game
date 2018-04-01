@@ -3,13 +3,14 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="Style/global.css">
+	<link rel="stylesheet" type="text/css" href="Style/collapse.css">
 	
 <script type="text/javascript" src="JS/javascript.js"></script>
 
 </head>
 <body>
 <!--page content-->
-
+<div class="first-screen">
 	<center>
 		<table width="1300">
 			<!--top row-->
@@ -58,48 +59,22 @@
 				 	<center>
 				 		<table style="margin: 15%">	
 				 		<tr rowspan = 6></tr>			 			
-					 		<tr>
-								<td  onclick="User_schoose(0);  Play_process();" ><img src = "Resource/Empty.png"   border="0" id="my1" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my2" class="userStone"></td>			
-								<td " onclick="User_schoose(1); Play_process();"> <img src = "Resource/Empty.png"   border="0" id="my3" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my4" class="userStone"></td>
-								<td  onclick="User_schoose(2);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my5" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my6" class="userStone"></td>
-								<td  onclick="User_schoose(3);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my7" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my8" class="userStone"></td>			
-								<td  onclick="User_schoose(4);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my9" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my10" class="userStone"></td>
-								<td  onclick="User_schoose(5);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my11" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my12" class="userStone"></td>
-								<td  onclick="User_schoose(6);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my13" class="userStone"> <img src = "Resource/Empty.png"   border="0" id="my14" class="userStone"></td>			
+					 		<tr class="userStone">
+								<td  onclick="User_schoose(0);  Play_process();" ><img src = "Resource/Empty.png"   border="0" id="my1" > <img src = "Resource/Empty.png"   border="0" id="my2" ></td>			
+								<td " onclick="User_schoose(1); Play_process();"> <img src = "Resource/Empty.png"   border="0" id="my3" > <img src = "Resource/Empty.png"   border="0" id="my4" ></td>
+								<td  onclick="User_schoose(2);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my5" > <img src = "Resource/Empty.png"   border="0" id="my6" ></td>
+								<td  onclick="User_schoose(3);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my7" > <img src = "Resource/Empty.png"   border="0" id="my8" ></td>			
+								<td  onclick="User_schoose(4);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my9" > <img src = "Resource/Empty.png"   border="0" id="my10" ></td>
+								<td  onclick="User_schoose(5);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my11" > <img src = "Resource/Empty.png"   border="0" id="my12" ></td>
+								<td  onclick="User_schoose(6);  Play_process();"><img src = "Resource/Empty.png"   border="0" id="my13" > <img src = "Resource/Empty.png"   border="0" id="my14" ></td>			
 							</tr>
 							<tr>
-								<td colspan=6 valign=top align=middle>
-									<form method="post">
-									    <input type="submit" value="NewGame" />
-									    <input type="submit" value="Pass"  onclick="Play_process();" />
-									    <input class="classWinner" />								    
-									</form>
+								<td colspan=6 valign=top align=middle>									
+									<input type="submit" value="NewGame" />
+									<input type="submit" value="Pass"  onclick="Play_process();" />
 								</td>								
 							</tr>
-							<tr>
-								<td colspan=3 valign=top align=middle>
-									<p>
-								        <label for="login">Player 1 : Computer</label>
-								        <input type="text"  id="login" class="login" />
-								    </p>
-								    <p>
-								        <label for="login">Player 2 : Computer</label>
-								        <input type="text" autofocus id="login" class="login" />
-								    </p>
-									
-								</td>
-								<td colspan=3 valign=top align=middle>
-									<p>
-								        <label for="login">Player 3 : Computer</label>
-								        <input type="text" autofocus id="login" class="login" />
-								    </p>
-								    <p>
-								        <label for="login">Player 4 : Human</label>
-								        <input type="text" autofocus id="login" class="login" />
-								    </p>
-									
-								</td>
-							</tr>
+							
 				 		</table>
 				 	</center>
 				 	
@@ -143,10 +118,43 @@
   			</tr> 
 		</table>
 	</center>
-
+</div>
+<div class="second-screen">
 	
+	<h1>Разновидности игры</h1>
+
+	<p>На Востоке известно более 40 различных игр с использованием домино. Существуют домино с цветными костяшками, где цвет обозначает достоинство. Названия игр чрезвычайно поэтичны: «гвоздики в тумане», «войти в пагоду», «прыжок газели». Подробнее см. китайское домино.
+	В России получили распространение несколько разновидностей игры, отличающихся друг от друга способами набора очков, условиями победы и т. д.</p>
+
+	<div class="collapse"> 
+		<div  class=" colapse-header" tabindex="0" >Козёл</div>
+			<div  class=" colapse-content">
+				<p>Самая популярная разновидность игры.</p>
+
+				<p>	В игре участвуют от 2 до 4 игроков. Каждый игрок получает по 7 костяшек. Начинает игру игрок с дублем 1-1 при игре вчетвером, или наименьшим дублем в остальных случаях. Последний камень из резерва не забирается. Следующий розыгрыш начинает игрок, выигравший предыдущий раунд или объявивший «рыбу». Проигравшие в каждом розыгрыше записывают на свой счёт сумму очков на оставшихся у них костяшках. Чтобы начать запись, нужно набрать хотя бы 13 очков. При «рыбе» в случае равного количества очков, оставшегося у игроков, объявляются «яйца». Приписываются проигравшему в следующем раунде или тому игроку, у которого осталось больше очков в случае «рыбы». Игрок, у которого осталось больше всего очков, мешает камни перед следующим раундом. В случае с «яйцами» — мешают оба игрока (игра вдвоём), если участвует больше игроков, то в случае, когда у третьего игрока осталось больше очков, чем «яйца», — мешает тот, у кого больше.</p>
+				<p>Игрок, первым набравший 101 очко, объявляется «козлом» — проигравшим. Иногда 4 игрока играют парами. При этом игроки, сидящие друг напротив друга по диагонали, играют в одной команде.</p>
+			</div>
+
+	<div  class=" colapse-header" tabindex="1" >Осёл</div>	
+		<div  class=" colapse-content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus repudiandae incidunt quidem pariatur, expedita, quo quis modi tempore, non ratione! Omnis a amet ad obcaecati quisquam, rem sequi saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+	<div  class=" colapse-header" tabindex="1" >Чечевэ</div>	
+		<div  class=" colapse-content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus repudiandae incidunt quidem pariatur, expedita, quo quis modi tempore, non ratione! Omnis a amet ad obcaecati quisquam, rem sequi saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
 
 
+</div>
+</div>
 
 </body>
 </html>
