@@ -5,7 +5,7 @@ body{
 
 .first-screen{
 	background: url("../Resource/banner.jpg")
-	no-repeat;
+	repeat;
 	
 }
 .second-screen, .first-screen{	
