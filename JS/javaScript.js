@@ -303,7 +303,6 @@ class Create_game{
 		var temp = stone.left_side;
 		stone.left_side = stone.right_side;
 		stone.right_side = temp;
-
 	};
 
 
@@ -334,7 +333,7 @@ class Create_game{
 			move_index= 3;
 			left_part_field.push(first_stone);
 			right_part_field.push(first_stone);
-			this.Remove(user.player_domino, first_stone);
+			this.Remove(user.player_domino, first_stone); 
 			
 		}
 		else if (this.Search_the_smallest_double(first_computer.player_domino)) {
@@ -542,7 +541,7 @@ function Get_image_source(number){
 		path ="Resource/4.gif" 
 		break;
 	case 5 : 
-		path ="Resource/5.gif" 
+		path ="Resource/5.gif"
 		break;
 	case 6 : 
 		path ="Resource/6.gif" 
